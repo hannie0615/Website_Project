@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>캠핑장 등록</title>
+</head>
+<body>
+    <form action="/register" method="post" enctype="multipart/form-data">
+        캠핑장명 : <input type="text" name="name"> <br>
+
+        지역 :
+        <select name="location"> <br>
+            <option value="서울/경기">서울/경기</option>
+            <option value="강원">강원</option>
+            <option value="충청">충청</option>
+            <option value="경상">경상</option>
+            <option value="전라">전라</option>
+        </select> <br>
+
+        주소: <input type="text" name="address"> <br>
+
+        <input type="file" name="uploadfile" multiple="multiple"> <br>
+
+        <input type="submit" value="등록">
+    </form>
+</body>
+</html>

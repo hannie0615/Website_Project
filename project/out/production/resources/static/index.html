@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Home Page</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+
+
+        }
+
+
+        .top_navbar {
+            background-color: #446591;
+            width: 100%;
+            height: 100px;
+            overflow: hidden;
+            margin-bottom: 25px;
+
+        }
+
+        #home_btn {
+            width: 100px;
+            height: 100px;
+            float: left;
+        }
+
+        h2 {
+            display: inline;
+            position: absolute;
+            margin-left: 15px;
+            padding: 32px;
+            font-size: 30px;
+            font-family: "배달의민족 주아";
+            float: right;
+            background-color: transparent;
+            color: #e3f2fd;
+
+        }
+
+        .btn-group {
+            margin-right: 15px;
+            float: right;
+
+        }
+
+
+        .bg-light {
+            --bs-bg-opacity: 0;
+
+        }
+
+
+        #search_main {
+            margin-top: 80px;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #review_main:hover,
+        #reservation_main:hover,
+        #btnGroupDrop1:hover {
+            color: #e3f2fd;
+        }
+
+        .btn-outline-success:active {
+            outline: none !important;
+            box-shadow: none !important;
+        }
+
+        .btn-outline-success {
+            background-color: #446591 ;
+            --bs-btn-color: #fff;
+            --bs-btn-border-color: #446591 !important;
+            --bs-btn-hover-color: #0dcaf0;
+            --bs-btn-hover-bg: #446591;
+            --bs-btn-hover-border-color: #fff;
+            --bs-btn-active-color: #446591;
+            --bs-btn-active-bg: #fff;
+            --bs-btn-active-border-color: #446591;
+            --bs-btn-disabled-color: #446591;
+            --bs-btn-disabled-bg: transparent;
+            --bs-gradient: none;
+
+
+        }
+
+
+
+        .btn-outline-info {
+            background-color: #446591;
+            --bs-btn-color: #fff;
+            --bs-btn-border-color: #fff;
+            --bs-btn-hover-color: #000;
+            --bs-btn-hover-bg: #fff;
+
+            --bs-btn-active-color: #000;
+            --bs-btn-active-bg: #446591;
+            --bs-btn-active-border-color: #fff;
+            --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+            --bs-btn-disabled-color: #fff;
+            --bs-btn-disabled-bg: transparent;
+            --bs-gradient: none;
+        }
+
+        #review_main:hover, #reservation_main:hover, #btnGroupDrop1:hover{
+            color:black;
+        }
+
+        .btn-outline-info:active {
+            outline: none !important;
+            box-shadow: none !important;
+        }
+
+        .form-control {
+
+            width: 500px;
+            height: 50px;
+
+        }
+
+        .review_box {
+            margin-top: 450px;
+
+            position: absolute;
+            left: 50%;
+            display: flex;
+            transform: translate(-50%, -50%);
+
+
+        }
+
+        #main_review {
+            margin: 50px;
+            border: 3px solid #446591
+        }
+
+        .card-img-top {
+            width: 282px;
+            height: 230px;
+        }
+    </style>
+</head>
+
+<body>
+<!-- Example Code -->
+
+<nav class="top_navbar">
+
+    <img src="http://www.urbanbrush.net/web/wp-content/uploads/edd/2019/02/urbanbrush-20190224103101623664.png"
+         alt="홈 버튼" id="home_btn" />
+    <h2>CAMPING</h2>
+
+    <!-- class:"btn btn-outline-info" - 버튼 css -->
+
+</nav>
+
+
+<div class="btn-group" role="group">
+    <button type="submit" class="btn btn-outline-info" id="review_main">리뷰 게시판</button>
+    <button type="submit" class="btn btn-outline-info" id="reservation_main">캠핑 예약 게시판</button>
+
+    <div class="btn-group" role="group">
+        <button id="btnGroupDrop1" type="submit" class="btn btn-outline-info"
+                class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            로그인/회원가입
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+            <li><a class="dropdown-item" href="#">로그인</a></li>
+            <li><a class="dropdown-item" href="#">회원가입</a></li>
+        </ul>
+    </div>
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+
+<div id="search_main">
+    <nav class="navbar bg-light">
+        <div class="container-fluid">
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+</div>
+
+<div class="review_box">
+    <div class="card" style="width: 18rem;" id="main_review">
+        <img src="https://cdn.imweb.me/thumbnail/20211101/d88d58ae1c35d.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Review1</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+
+    <div class="card" style="width: 18rem;" id="main_review">
+        <img src="https://www.datanet.co.kr/news/photo/202107/162625_86371_3631.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Review2</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+
+    <div class="card" style="width: 18rem;" id="main_review">
+        <img src="https://allways.smotor.com/wp-content/uploads/2019/05/190530_%EC%8C%8D%EC%9A%A9_%EC%98%A4%ED%86%A0%EC%BA%A0%ED%95%91%EB%B9%8C%EB%A6%AC%EC%A7%80_%EC%8D%B8%EB%84%A4%EC%9D%BC.png"
+             class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Review3</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>등록 상품</title>
+</head>
+<body>
+
+<table>
+    <thead>
+    <tr>
+        <th> 캠핑장명 </th>
+        <th> 등록 날짜 </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="registered : ${registeredList}">
+        <td th:text="${registered.name}"></td>
+        <td th:text="${registered.date}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
