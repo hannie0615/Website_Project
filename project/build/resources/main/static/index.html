@@ -167,17 +167,19 @@
 
 
 <div class="btn-group" role="group">
-    <button type="submit" class="btn btn-outline-info" id="review_main">리뷰 게시판</button>
+    <button type="submit" class="btn btn-outline-info" id="review_main"><a href="/review/Board">리뷰 게시판</a></button>
     <button type="submit" class="btn btn-outline-info" id="reservation_main">캠핑 예약 게시판</button>
 
     <div class="btn-group" role="group">
         <button id="btnGroupDrop1" type="submit" class="btn btn-outline-info"
                 class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            로그인/회원가입
+            로그인/회원가입/마이페이지
         </button>
         <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-            <li><a class="dropdown-item" href="#">로그인</a></li>
-            <li><a class="dropdown-item" href="#">회원가입</a></li>
+            <li><a class="dropdown-item" href="/members/login">로그인</a></li>
+            <li><a class="dropdown-item" href="/members/join">회원가입</a></li>
+            <li><a class="dropdown-item" href="/myPage">마이페이지</a></li>
+
         </ul>
     </div>
 </div>
