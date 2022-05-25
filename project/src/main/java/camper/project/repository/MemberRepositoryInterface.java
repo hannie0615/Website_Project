@@ -11,4 +11,6 @@ public interface MemberRepositoryInterface {
     Member findMember(String id);
 
 
+
+
 }

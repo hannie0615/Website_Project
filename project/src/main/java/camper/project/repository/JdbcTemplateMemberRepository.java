@@ -48,6 +48,7 @@ public class JdbcTemplateMemberRepository implements MemberRepositoryInterface {
         return null;
     }
 
+
     private RowMapper<Member> memberRowMapper() {
         return new RowMapper<Member>() {
             @Override
@@ -57,7 +58,7 @@ public class JdbcTemplateMemberRepository implements MemberRepositoryInterface {
                 m.setId(rs.getString("id"));
                 m.setPw(rs.getString("pw"));
                 m.setName(rs.getString("name"));
-                m.setBirthDate(rs.getInt("birthdate"));
+                m.setBirthDate(rs.getString("birthdate"));
 
                 return m;
             }

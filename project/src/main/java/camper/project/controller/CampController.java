@@ -79,4 +79,21 @@ public class CampController {
 
         return "camp/registeredList";
     }
+
+    // Seller mypage
+    @GetMapping("/myPage")
+    public String getMyPage(HttpServletRequest request, Model model) throws IOException {
+
+        Member m = (Member)request.getSession().getAttribute("member");
+        List<Camp> campList = service.findBySellerId(m.getId());
+
+        model.addAttribute("loginMember", m);
+
+        model.addAttribute("registeredList", campList);
+
+        return "members/myPageForm";
+
+
+    }
+
 }
