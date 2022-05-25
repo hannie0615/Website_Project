@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>회원가입</title>
@@ -7,10 +7,14 @@
 <body>
 
 <form action="/members/join" method="post">
-    이름: <input type="text" name="name"> <br>
-    생년월일: <input type="number" name="birthdate"> <br>
-    아이디: <input type="text" name="id"> <br>
-    비밀번호: <input type="password" name="pw"> <br>
+    이름: <input type="text" name="name" placeholder="이름을 입력해주세요."> <span th:text="${valid_name}"></span> <br>
+
+    생년월일: <input type="text" name="birthDate" placeholder="생년월일을 입력해주세요."> <span th:text="${valid_birthDate}"></span> <br>
+
+    아이디: <input type="text" name="id" placeholder="아이디를 입력해주세요.">
+    <span th:text="${valid_id}"></span> <br>
+
+    비밀번호: <input type="password" name="pw" placeholder="비밀번호를 입력해주세요."> <span th:text="${valid_pw}"></span> <br>
     <input type="submit" value="가입">
 </form>
 

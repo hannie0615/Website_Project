@@ -1,11 +1,17 @@
 package camper.project.domain;
 
+
+import javax.validation.constraints.NotBlank;
+
+
 public class Member {
+
 
     private String name;
     private String id;
-    private int birthDate;
+    private String birthDate;
     private String pw;
+
 
     public String getName() {
         return name;
@@ -23,11 +29,11 @@ public class Member {
         this.id = id;
     }
 
-    public int getBirthDate() {
+    public String getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(int birth_date) {
+    public void setBirthDate(String birth_date) {
         this.birthDate = birth_date;
     }
 

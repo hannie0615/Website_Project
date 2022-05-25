@@ -5,6 +5,7 @@ import camper.project.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 import java.io.IOException;
+import java.util.Map;
 
 @Controller
 public class MemberController {
@@ -31,12 +34,24 @@ public class MemberController {
     }
 
     @PostMapping("members/join")
-    public String create(MemberForm memberForm) {
+    public String create(@Valid MemberForm member, Errors errors, Model model) {
         Member m = new Member();
-        m.setId(memberForm.getId());
-        m.setPw(memberForm.getPw());
-        m.setBirthDate(memberForm.getBirthDate());
-        m.setName(memberForm.getName());
+
+        if (errors.hasErrors()) {
+            model.addAttribute("member", member);
+
+            Map<String, String> validatorResult = service.validateHandling(errors);
+            for (String key : validatorResult.keySet()) {
+                model.addAttribute(key, validatorResult.get(key));
+            }
+
+            return "members/joinForm";
+        }
+
+        m.setBirthDate(member.getBirthDate());
+        m.setName(member.getName());
+        m.setId(member.getId());
+        m.setPw(member.getPw());
 
         service.join(m);
 

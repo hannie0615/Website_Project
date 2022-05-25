@@ -1,10 +1,7 @@
 package camper.project;
 
 import camper.project.interceptor.LoginInterceptor;
-import camper.project.repository.CampRepositoryInterface;
-import camper.project.repository.JdbcTemplateCampRepository;
-import camper.project.repository.JdbcTemplateMemberRepository;
-import camper.project.repository.MemberRepositoryInterface;
+import camper.project.repository.*;
 import camper.project.service.CampService;
 import camper.project.service.MemberService;
 import org.springframework.context.annotation.Bean;
