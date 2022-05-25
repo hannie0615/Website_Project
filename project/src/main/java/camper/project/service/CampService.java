@@ -1,6 +1,6 @@
 package camper.project.service;
 
-import camper.project.domain.Camp;
+import  camper.project.domain.Camp;
 import camper.project.domain.CampImage;
 import camper.project.repository.CampRepositoryInterface;
 import org.springframework.beans.factory.annotation.Autowired;
