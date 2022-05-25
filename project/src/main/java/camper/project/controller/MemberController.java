@@ -99,17 +99,7 @@ public class MemberController {
     }
 
     // myPage
-    @GetMapping("/myPage")
-    public String getMyPage(HttpServletRequest request, Model model) throws IOException {
 
-        Member m = (Member)request.getSession().getAttribute("member");
-
-        model.addAttribute("loginMember", m);
-
-        return "members/myPageForm";
-
-
-    }
 
 
 }
