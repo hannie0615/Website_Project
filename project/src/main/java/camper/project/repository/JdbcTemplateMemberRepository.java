@@ -4,6 +4,7 @@ import javax.sql.DataSource;
 
 import camper.project.domain.Camp;
 import camper.project.domain.Member;
+import camper.project.domain.Reserve;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -55,6 +56,12 @@ public class JdbcTemplateMemberRepository implements MemberRepositoryInterface {
         return jdbcTemplate.query("SELECT * FROM camps WHERE sellerid = ?", campRowMapper(), id);
     }
 
+    @Override
+    public List<Reserve> findByid(String id) {
+        return jdbcTemplate.query("SELECT * FROM reserve WHERE id=?", reserveRowMapper(), id);
+    }
+
+
     private RowMapper<Member> memberRowMapper() {
         return new RowMapper<Member>() {
             @Override
@@ -87,6 +94,22 @@ public class JdbcTemplateMemberRepository implements MemberRepositoryInterface {
                 c.setCampId(rs.getInt("campId"));
 
                 return c;
+            }
+        };
+    }
+
+    private RowMapper<Reserve> reserveRowMapper() {
+        return new RowMapper<Reserve>() {
+            @Override
+            public Reserve mapRow(ResultSet rs, int rowNum) throws SQLException {
+                Reserve r = new Reserve();
+                r.setClientname(rs.getString("clientname"));
+                r.setClientid(rs.getString("clientid"));
+                r.setReserveplace(rs.getString("reserveplace"));
+                r.setStaytime(rs.getString("staytime"));
+                r.setReservedate(rs.getString("reservedate"));
+                r.setReserveid(rs.getString("reserveid"));
+                return r;
             }
         };
     }

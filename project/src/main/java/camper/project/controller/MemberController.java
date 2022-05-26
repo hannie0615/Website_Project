@@ -2,6 +2,7 @@ package camper.project.controller;
 
 import camper.project.domain.Camp;
 import camper.project.domain.Member;
+import camper.project.domain.Reserve;
 import camper.project.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -120,7 +121,7 @@ public class MemberController {
             return "members/sellerMyPage";
         }
 
-        List<Reserve> r= reserveservice.findByid(m.getId());
+        List<Reserve> r= service.findByid(m.getId());
         model.addAttribute("reserves", r);
 
 

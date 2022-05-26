@@ -2,6 +2,7 @@ package camper.project.service;
 
 import camper.project.domain.Camp;
 import camper.project.domain.Member;
+import camper.project.domain.Reserve;
 import camper.project.repository.MemberRepositoryInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.Errors;
@@ -14,6 +15,7 @@ import java.util.Map;
 public class MemberService {
 
     MemberRepositoryInterface repository;
+
 
     @Autowired
     public MemberService(MemberRepositoryInterface repository) {
@@ -38,6 +40,10 @@ public class MemberService {
             validatorResult.put(validkeyName, error.getDefaultMessage());
         }
         return validatorResult;
+    }
+
+    public List<Reserve> findByid(String id) {
+        return repository.findByid(id);
     }
 
 
