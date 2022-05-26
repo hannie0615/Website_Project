@@ -120,6 +120,10 @@ public class MemberController {
             return "members/sellerMyPage";
         }
 
+        List<Reserve> r= reserveservice.findByid(m.getId());
+        model.addAttribute("reserves", r);
+
+
         return "members/clientMyPage";
 
 
