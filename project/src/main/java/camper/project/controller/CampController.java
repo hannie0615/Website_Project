@@ -3,6 +3,7 @@ package camper.project.controller;
 import camper.project.domain.Camp;
 import camper.project.domain.CampImage;
 import camper.project.domain.Member;
+import camper.project.domain.Room;
 import camper.project.service.CampService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -38,7 +39,7 @@ public class CampController {
     String imgpath;
 
     @PostMapping("register")
-    public String register(@RequestParam MultipartFile[] uploadfile,HttpServletRequest request, CampForm campForm) throws IOException {
+    public String register(@RequestParam MultipartFile[] uploadfile,HttpServletRequest request, CampForm campForm, Model model) throws IOException {
         Camp c = new Camp();
 
         Member m = (Member)request.getSession().getAttribute("member");
@@ -53,7 +54,8 @@ public class CampController {
 
         for (MultipartFile file : uploadfile) {
             if (!file.isEmpty()) {
-                CampImage ci = new CampImage(UUID.randomUUID().toString(),
+                CampImage ci = new CampImage("main",
+                        UUID.randomUUID().toString(),
                         file.getOriginalFilename(),
                         file.getContentType(),
                         service.findByName(campForm.getName()).getCampId());
@@ -64,10 +66,50 @@ public class CampController {
             }
         }
 
-        return "redirect:myPage";
+        model.addAttribute("registeringCamp", c);
+
+        return "camp/registerRoom";
 
     }
 
+
+
+    @PostMapping("registerRoom")
+    public String registerRoom(@RequestParam MultipartFile[] uploadfile, RoomForm r, HttpServletRequest request, CampForm campForm, Model model) throws IOException {
+
+        Room room = new Room();
+
+        System.out.println(r.getCampId());
+        System.out.println(r.getName());
+        System.out.println(r.getPrice());
+        System.out.println(r.getCampId());
+
+        for (MultipartFile file : uploadfile) {
+            if (!file.isEmpty()) {
+                CampImage ci = new CampImage(r.getName(),
+                        UUID.randomUUID().toString(),
+                        file.getOriginalFilename(),
+                        file.getContentType(),
+                        r.getCampId());
+                service.uploadImage(ci);
+
+                File newFile = new File(ci.getUuid() + "_" + ci.getImgName());
+                file.transferTo(newFile);
+            }
+        }
+
+        room.setRoomId(r.getRoomId());
+        room.setCampId(r.getCampId());
+        room.setReserveCheck(false);
+        room.setName(r.getName());
+        room.setPrice(r.getPrice());
+
+        service.registerRoom(room);
+        model.addAttribute("registeringCamp", room);
+
+        return "camp/registerRoom";
+
+    }
 
     @GetMapping("registered")
     public String registered(HttpServletRequest request, Model model) {
@@ -81,19 +123,6 @@ public class CampController {
     }
 
     // Seller mypage
-    @GetMapping("/myPage")
-    public String getMyPage(HttpServletRequest request, Model model) throws IOException {
 
-        Member m = (Member)request.getSession().getAttribute("member");
-        List<Camp> campList = service.findBySellerId(m.getId());
-
-        model.addAttribute("loginMember", m);
-
-        model.addAttribute("registeredList", campList);
-
-        return "members/myPageForm";
-
-
-    }
 
 }

@@ -1,5 +1,6 @@
 package camper.project.controller;
 
+import camper.project.domain.Camp;
 import camper.project.domain.Member;
 import camper.project.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -52,7 +54,9 @@ public class MemberController {
         m.setName(member.getName());
         m.setId(member.getId());
         m.setPw(member.getPw());
+        m.setType(member.getType());
 
+        System.out.println(member.getType());
         service.join(m);
 
         return "redirect:/";
@@ -74,6 +78,7 @@ public class MemberController {
         if(m != null && m.getPw().equals(pw)) {
             session.setAttribute("member", m);
         } else {
+            System.out.println("실패");
             return "redirect:login";
         }
 
@@ -99,7 +104,26 @@ public class MemberController {
     }
 
     // myPage
+    @GetMapping("/myPage")
+    public String getMyPage(HttpServletRequest request, Model model) throws IOException {
 
+
+        Member m = (Member)request.getSession().getAttribute("member");
+
+        model.addAttribute("loginMember", m);
+
+        if(m.getType().equals("seller")) {
+            List<Camp> campList = service.findCampsBySellerId(m.getId());
+
+            model.addAttribute("registeredList", campList);
+
+            return "members/sellerMyPage";
+        }
+
+        return "members/clientMyPage";
+
+
+    }
 
 
 }

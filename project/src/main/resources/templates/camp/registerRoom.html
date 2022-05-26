@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="registerRoom" method="post" modelAttribute="registeringCamp" enctype="multipart/form-data">
+    <input type="hidden" name="campId" th:number="${registeringCamp.campId}">
+    방이름 : <input type="text" name="name"> <br>
+    가격 : <input type="text" name="price"> <br>
+    <input type="file" name="uploadfile" multiple="multiple"> <br>
+    <input type="submit" value="등록"> <br>
+</form>
+    <a href="myPage">완료</a>
+
+</body>
+</html>

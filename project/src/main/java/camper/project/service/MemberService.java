@@ -1,13 +1,14 @@
 package camper.project.service;
 
+import camper.project.domain.Camp;
 import camper.project.domain.Member;
 import camper.project.repository.MemberRepositoryInterface;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class MemberService {
@@ -26,6 +27,8 @@ public class MemberService {
     public Member findMember(String id) {
         return repository.findMember(id);
     }
+
+    public List<Camp> findCampsBySellerId(String id) { return repository.findCampsBySellerId(id); }
 
     public Map<String, String> validateHandling(Errors errors) {
         Map<String, String> validatorResult = new HashMap<>();
