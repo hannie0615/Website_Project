@@ -65,7 +65,7 @@ public class CampController {
                 file.transferTo(newFile);
             }
         }
-
+        c.setCampId(service.findByName(campForm.getName()).getCampId());
         model.addAttribute("registeringCamp", c);
 
         return "camp/registerRoom";
@@ -82,7 +82,7 @@ public class CampController {
         System.out.println(r.getCampId());
         System.out.println(r.getName());
         System.out.println(r.getPrice());
-        System.out.println(r.getCampId());
+        System.out.println(r.getRoomId());
 
         for (MultipartFile file : uploadfile) {
             if (!file.isEmpty()) {
