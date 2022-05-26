@@ -53,5 +53,13 @@ public class SpringConfig implements WebMvcConfigurer {
     public ReviewRepositoryInterface reviewRepositoryInterface() {
         return new JdbcTemplateReviewRepository(dataSource);
     }
+    @Bean
+    public Reserveservice reserveservice() {
+        return new Reserveservice(reserveRepositoryInterface());
+    }
 
+    @Bean
+    public ReserveRepositoryInterface reserveRepositoryInterface() {
+        return new JdbcTempleteReserverepository(dataSource);
+    }
 }
