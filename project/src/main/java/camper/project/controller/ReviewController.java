@@ -21,6 +21,9 @@ public class ReviewController {
         this.service = service;
     }
 
+    @GetMapping("reviews/board")
+    public String ReviewBoard() { return "review/reviewBoard";}
+
     @GetMapping("reviews/new")
     public String createReview() {
         return "review/ReviewPage";
