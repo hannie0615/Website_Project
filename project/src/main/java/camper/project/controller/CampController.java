@@ -67,6 +67,7 @@ public class CampController {
         }
         c.setCampId(service.findByName(campForm.getName()).getCampId());
         model.addAttribute("registeringCamp", c);
+        // 변경내용
 
         return "camp/registerRoom";
 
