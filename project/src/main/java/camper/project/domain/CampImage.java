@@ -2,20 +2,30 @@ package camper.project.domain;
 
 public class CampImage {
 
+    private String name;
     private String uuid;
     private String imgName;
     private String contentType;
-    private String campId;
+    private int campId;
 
-    public String getCampId() {
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getCampId() {
         return campId;
     }
 
-    public void setCampId(String campId) {
+    public void setCampId(int campId) {
         this.campId = campId;
     }
 
-    public CampImage(String uuid, String imgName, String contentType, String campId) {
+    public CampImage(String name, String uuid, String imgName, String contentType, int campId) {
+        this.name = name;
         this.uuid = uuid;
         this.imgName = imgName;
         this.contentType = contentType;

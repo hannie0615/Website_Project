@@ -5,10 +5,11 @@ import java.util.List;
 public class Camp {
     private String location;
     private String name;
-    private String campId;
+    private int campId;
     private String sellerId;
     private String address;
     private String date;
+
 
 
     public String getLocation() {
@@ -27,11 +28,11 @@ public class Camp {
         this.name = name;
     }
 
-    public String getCampId() {
+    public int getCampId() {
         return campId;
     }
 
-    public void setCampId(String campId) {
+    public void setCampId(int campId) {
         this.campId = campId;
     }
 

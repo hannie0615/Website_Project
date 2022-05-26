@@ -1,9 +1,6 @@
 package camper.project.domain;
 
 
-import javax.validation.constraints.NotBlank;
-
-
 public class Member {
 
 
@@ -11,7 +8,15 @@ public class Member {
     private String id;
     private String birthDate;
     private String pw;
+    private String type;
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 
     public String getName() {
         return name;

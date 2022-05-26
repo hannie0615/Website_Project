@@ -8,6 +8,8 @@ public class CampForm {
 
 
 
+
+
     public String getName() {
         return name;
     }

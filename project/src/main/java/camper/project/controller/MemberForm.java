@@ -23,6 +23,17 @@ public class MemberForm {
     @Size(min = 8, max = 15, message = "비밀번호는 8~15자리로 입력해주세요.")
     private String pw;
 
+    @NotBlank(message = "판매자/고객 중 선택 해주세요.")
+    private String type;
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     public String getName() {
         return name;
     }

@@ -2,6 +2,7 @@ package camper.project.service;
 
 import camper.project.domain.Camp;
 import camper.project.domain.CampImage;
+import camper.project.domain.Room;
 import camper.project.repository.CampRepositoryInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -27,6 +28,10 @@ public class CampService {
     public List<Camp> findByLocation(String location) {
         return repository.findCampByLocation(location);
 
+    }
+
+    public void registerRoom(Room r) {
+        repository.saveRoom(r);
     }
 
     public List<Camp> findBySellerId(String sellerId) {

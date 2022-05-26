@@ -18,7 +18,7 @@
             <div id="sub_contents">
                 <div class="width_narrow">
                     <div class="login_contents">
-                        <!-- <form action="#" method="post"> -->
+                        <form action="/members/join" method="post">
                         <fieldset>
                             <legend>로그인</legend>
                             <h3>
@@ -54,36 +54,20 @@
                                     </li>
                                     <li>
                                         <label for="name" class="sound_only">생년월일</label>
-                                        <input type="text" name="birthdate" id="birthdate" placeholder="생년월일을 입력해주세요" class="width_100p" />
+                                        <input type="text" name="birthDate" id="birthdate" placeholder="생년월일을 입력해주세요" class="width_100p" />
                                         <span th:text="${valid_birthDate}"></span> <br>
                                     </li>
                                 </ul>
-
+                                <select name="type">
+                                    <option value="">회원 타입</option>
+                                    <option value="seller">판매자</option>
+                                    <option value="client">고객</option>
+                                </select> <span th:text="${valid_type}"></span> <br>
 
                                 <!-- 회원 가입 모양의 버튼만 있는 상태. 기능 구현x -->
-                                <a href="index.html">
-                                    <input type="submit" class="width_100p btn mt10" value="회원가입">
-                                </a>
 
+                                <input type="submit" class="width_100p btn mt10" value="회원가입">
 
-                                <!-- 판매자 / 고객 구분 -->
-                                <div id="join_div">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="member" id="join_member" disabled>
-                                        <label class="form-check-label" for="flexRadioDefault1">
-                                            고객
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="seller" id="join_seller" checked> <!--checked-->
-                                        <label class="form-check-label" for="flexRadioDefault2">
-                                            판매자
-                                        </label>
-                                    </div>
-                                </div>
-
-
-                                <!--  -->
                                 <div class="btn_area">
                                     <ul>
                                         <li><a href="loginForm.html" class="login_icon">로그인</a>
@@ -94,7 +78,7 @@
                                 </div>
                             </div>
                         </fieldset>
-                        <!-- </form> -->
+                        </form>
                     </div>
                 </div>
             </div>
