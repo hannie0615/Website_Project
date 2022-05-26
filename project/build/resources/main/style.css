@@ -1,0 +1,886 @@
+body{
+    overflow: scroll;
+    height: auto; 
+    background-color: #F9F9FA;
+    
+}
+* {
+    
+    margin: 0;
+    padding: 0;
+}
+ /*================================================================> 전체 style적용*/
+/* body{
+    min-width:1050px;
+} */
+
+
+.top_navbar {
+    background-color: #446591;
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+
+
+}
+
+#home_btn {
+    width: 100px;
+    height: 100px;
+    float: left;
+}
+
+h2 {
+    display: inline;
+    position: absolute;
+    margin-left: 15px;
+    padding: 32px;
+    font-size: 30px;
+    font-family: "배달의민족 주아";
+    float: right;
+    background-color: transparent;
+    color: #e3f2fd;
+
+}
+
+#search_main {
+    margin-top: 80px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+}
+
+
+
+.btn-group {
+    margin-right: 15px;
+    float: right;
+
+}
+
+
+.bg-light {
+    --bs-bg-opacity: 0;
+
+}
+
+
+
+
+.btn-outline-success:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.btn-outline-success {
+    background-color: #446591;
+    --bs-btn-color: #fff;
+    --bs-btn-border-color: #446591 !important;
+    --bs-btn-hover-color: #0dcaf0;
+    --bs-btn-hover-bg: #446591;
+    --bs-btn-hover-border-color: #fff;
+    --bs-btn-active-color: #446591;
+    --bs-btn-active-bg: #fff;
+    --bs-btn-active-border-color: #446591;
+    --bs-btn-disabled-color: #446591;
+    --bs-btn-disabled-bg: transparent;
+    --bs-gradient: none;
+
+
+}
+
+
+
+.btn-outline-info {
+    background-color: #446591;
+    --bs-btn-color: #fff;
+    --bs-btn-border-color: #446591 !important;
+    --bs-btn-hover-color: #000;
+    --bs-btn-hover-bg: #fff;
+
+    --bs-btn-active-color: #000;
+    --bs-btn-active-bg: #446591;
+    --bs-btn-active-border-color: #fff;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #000;
+    --bs-btn-disabled-bg: transparent;
+    --bs-gradient: none;
+}
+
+#review_main:hover,
+#reservation_main:hover,
+#btnGroupDrop1:hover {
+    color: whitesmoke
+}
+
+.btn-outline-info:active {
+    outline: none !important;
+    box-shadow: none !important;
+    color: whitesmoke
+    
+}
+
+.form-control {
+
+    width: 500px;
+    height: 50px;
+
+}
+
+/*-----------------------------------------------------------------------------------> 상단 홈 css */
+.review_box {
+    margin-top: 450px;
+
+    position: absolute;
+    left: 50%;
+    display: flex;
+    transform: translate(-50%, -50%);
+
+
+}
+
+#main_review {
+    margin: 50px;
+    border: 3px solid #446591
+}
+
+.card-img-top {
+    width: 282px;
+    height: 230px;
+}
+
+/*==============================================================> 홈화면에 보여지는 리뷰 style*/
+.badge {
+    --bs-badge-padding-x: 0.65em;
+    --bs-badge-padding-y: 0.35em;
+    /* --bs-badge-font-size: 0.75em; */
+    --bs-badge-font-weight: 700;
+    --bs-badge-color: #fff;
+    --bs-badge-border-radius: 0.375rem;
+    /* display: inline-block; */
+    padding: var(--bs-badge-padding-y) var(--bs-badge-padding-x);
+    font-size: var(--bs-badge-font-size);
+    font-weight: var(--bs-badge-font-weight);
+    line-height: 1;
+    color: var(--bs-badge-color);
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: var(--bs-badge-border-radius, 0);
+
+}
+/* ------------------------------------------------------------------->button 테두리 없앰 */
+
+#memberInfo, #sellerInfo, #registrationInfo,#reservationInfo, #reviewInfo{
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    width: 150px;
+    font-size: 15px;
+    line-height: 2;
+}
+ /* -----------------------------------------------------------------------------테이블을 감싸고 있는 div태그 css*/
+ .table th {
+    width: 150px;
+
+
+}
+.table{
+    text-align: center;
+    }
+/*-----------------------------------------------------------------------------------> 테이블 column너비 지정 && 테이블 가운데정렬*/
+.member_info, .seller_info, .registration_history, .reservation_history, .review_history{          
+    width: 50%;
+   margin: 0 auto;
+   margin-top:150px;
+    height: 120px;
+    font-size: 16px;
+}
+/* -----------------------------------------------------------------------------테이블을 감싸고 있는 div태그 css*/
+#leave_seller, #leave_member{
+    
+    --bs-btn-color: #fff;
+--bs-btn-border-color: #446591;
+--bs-btn-hover-color: #0dcaf0;
+--bs-btn-hover-bg: #446591;
+--bs-btn-hover-border-color: #446591;
+--bs-btn-focus-shadow-rgb: #fff;
+--bs-btn-active-color: #446591;
+--bs-btn-active-bg: #fff;
+--bs-btn-active-border-color: #446591;
+--bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+
+ /* ----------------------------------------------------------------------------->판매자/고객 탈퇴버튼 */
+
+
+
+.registration_history, .reservation_history{
+margin: 80px auto;
+}
+/* ------------------------------------------------------------------------------>table 중앙정렬 및 위치 배치 */
+
+#cancel{
+    margin-left: 42px;
+    --bs-btn-color: #fff;
+--bs-btn-border-color: #446591;
+--bs-btn-hover-color: #0dcaf0;
+--bs-btn-hover-bg: #446591;
+--bs-btn-hover-border-color: #446591;
+--bs-btn-focus-shadow-rgb: #fff;
+--bs-btn-active-color: #446591;
+--bs-btn-active-bg: #fff;
+--bs-btn-active-border-color: #446591;
+--bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+/* ------------------------------------------------------------------------------->예약 취소버튼 css */
+#regist_delete{
+margin-left: 45px;
+--bs-btn-color: #fff;
+--bs-btn-border-color: #446591;
+--bs-btn-hover-color: #0dcaf0;
+--bs-btn-hover-bg: #446591;
+--bs-btn-hover-border-color: #446591;
+--bs-btn-focus-shadow-rgb: #fff;
+--bs-btn-active-color: #446591;
+--bs-btn-active-bg: #fff;
+--bs-btn-active-border-color: #446591;
+--bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+
+
+
+#registration_date{
+width: 1rem;
+
+}
+
+#registration_addr{
+font-size: 14px;
+}
+
+
+h6 > a{
+color: #000;
+font-weight: bold;
+text-decoration: none;
+}
+/*-----------------------------------------------------------------------------------> 판매자 마이페이지에서 상품등록 css */
+.review_history{
+    margin: 80px auto;
+}
+
+#review_delete{
+    margin-left: 45px;
+    --bs-btn-color: #fff;
+--bs-btn-border-color: #446591;
+--bs-btn-hover-color: #0dcaf0;
+--bs-btn-hover-bg: #446591;
+--bs-btn-hover-border-color: #446591;
+--bs-btn-focus-shadow-rgb: #fff;
+--bs-btn-active-color: #446591;
+--bs-btn-active-bg: #fff;
+--bs-btn-active-border-color: #446591;
+--bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+
+#review_title{
+    width: 300px;
+}
+/* ------------------------------------------------------------------------------->고객 마이페이지에서 리뷰부분 */
+
+
+#registPage,#registAddr,#registPrice,#registInstallation{
+       /* margin-left: -50px; */
+       width: 150px;
+       display: inline-block;
+       /* margin: 50px -500px; */
+       margin-top: 100px;
+       margin-left: 450px;
+       /* transform: translate(-50%, -50%); */
+       font-size: 15px;
+       line-height: 2;
+}/* ---------------------------------------------------------------------------------->상품 등록판 css*/
+
+#select_zone {
+    display: block;
+    /* width: 100%; */
+    width: 10%;
+    padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+    -moz-padding-start: calc(0.75rem - 3px);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    /* background-position: right 0.75rem center; */
+    /* background-size: 16px 12px; */
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin-top: 15px;
+    margin-left: 450px;
+    cursor: pointer;
+    /* margin: 80px auto; */
+}
+/* ---------------------------------------------------------------------------------->상품 등록 지역 css */
+#select_unit {
+    display: block;
+    /* width: 100%; */
+    width: 10%;
+    padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+    -moz-padding-start: calc(0.75rem - 3px);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-repeat: no-repeat;
+  
+    border: 1px solid #ced4da;
+    border-radius: 0.375rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin-top: -38px;
+    margin-left: 650px;
+    cursor: pointer;
+    /* margin: 80px auto; */
+}
+/* ---------------------------------------------------------------------------------->상품 등록 호실 css */
+.img-fluid{
+    margin-top: 45px;
+    margin-left: 650px;
+    border-radius: 2em;
+    border: 5px solid #446591;
+    padding : 3px;
+}
+
+.input-group{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    /* align-items: stretch; */
+    width: 25%;
+    margin-top: 10px;
+    margin-left: 900px;
+}
+
+.form-control{
+    height: 38px;
+}
+
+/* ----------------------------------------------------------------------------------> 이미지 업로드 및 css*/
+
+#registAddr{
+ margin-top: 10px;
+}
+/* ----------------------------------------------------------------------------------> 주소 label */
+
+#registPrice{
+    margin-top: 10px;
+    margin-left: 350px;
+   }
+/* ----------------------------------------------------------------------------------> 가격 label*/
+
+
+#inputAddress{
+    width: 400px;
+    
+}
+#inputPrice{
+    width: 300px;
+    
+}
+
+.col-12{
+   margin-top: 40px;
+    margin-left: 450px;
+}
+.col-md-6{
+    border-spacing: 30px;
+    margin-top: 40px;
+    margin-top: -70px;
+    margin-left:950px;
+}
+/*----------------------------------------------------------------------------------->주소 or 가격  input태그*/
+
+#registInstallation{
+    margin-top: 40px;
+    margin-left: 460px;
+}
+#inputInstallation_box{
+    margin-left: -447px;
+}
+#inputInstallation{
+    margin-left: 900px;
+}
+
+#registSuccess{
+ 
+    --bs-btn-color: #fff;
+--bs-btn-border-color: #446591;
+--bs-btn-hover-color: #0dcaf0;
+--bs-btn-hover-bg: #446591;
+--bs-btn-hover-border-color: #446591;
+--bs-btn-focus-shadow-rgb: #fff;
+--bs-btn-active-color: #446591;
+--bs-btn-active-bg: #fff;
+--bs-btn-active-border-color: #446591;
+--bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+
+
+.btn-primary {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #446591;
+    --bs-btn-border-color: #446591;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #446591;
+    --bs-btn-hover-border-color: #446591;
+    --bs-btn-focus-shadow-rgb: 49,132,253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #446591;
+    --bs-btn-active-border-color: #446591;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: #446591;
+    --bs-btn-disabled-border-color: #446591;
+}
+
+/*------------------------------------------------>등록완료 버튼*/
+#index_reservation{
+    color:#fff;
+    text-decoration: none;
+}
+#index_reservation:hover{
+    color:#000;
+}
+#index_reservation:active{
+    color:#fff;
+}
+/*---------------------------------------------->index페이지 에서 캠핑예약 버튼 css*/
+#reservationSearch{
+    margin-top: 80px;
+    left: 50%;
+    transform: translate(120%, -50%);
+  
+}
+/*----------------------------------------------->캠핑 예약 페이지에서 search버튼 위치지정*/
+
+#showAddr,#showPrice,#showInstallation, #showReview{
+    /* margin-left: -50px; */
+    width: 150px;
+    display: inline-block;
+    /* margin: 50px -500px; */
+    margin-top: 100px;
+    margin-left: 450px;
+    /* transform: translate(-50%, -50%); */
+    font-size: 15px;
+    line-height: 2;
+}
+
+
+#show_addr{
+    width: 500px;
+    margin-left: 135px;
+    margin-top: 15px;
+}
+
+#showPrice {
+    margin-left: -850px;
+    margin-top: 30px;
+}
+#show_price{
+    width: 500px;
+    margin-left: 110px;
+    margin-top: 15px;
+}
+#showInstallation{
+    margin-left: -850px;
+    margin-top: 30px;
+}
+
+#show_installation{
+    width: 500px;
+    margin-left: 90px;
+    margin-top: 15px;
+}
+
+#showReview{
+    margin-left: -850px;
+    margin-top: 30px;
+}
+#show_review{
+    width: 500px;
+    margin-left: 70px;
+    margin-top: 15px;
+}
+
+#reservation_success{
+    margin-left: -480px;
+}
+/*---------------------------------------------------->캠핑예약하기 css*/
+#writeReview{
+    width: 150px;
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: 450px;
+    font-size: 15px;
+    line-height: 2;
+}
+/*---------------------------------------------------->리뷰작성 label css*/
+.container{
+    text-align: center;
+   grid-template-columns: 2fr 2fr ;
+
+}
+
+.review_txt{
+    margin-top: 30px;
+    width: 280px;
+    border-radius: 0.3em;
+}
+
+.location_txt{
+    margin-top: 30px;
+    width: 300px; 
+    border-radius: 0.3em;
+}
+
+h5 { 
+    font-family:'굴림체';
+    color: #000;
+    
+}
+.col{
+    display: flex;
+}
+#write_title{
+    margin-left: 350px;
+}
+#write_location{
+    margin-left: -150px;
+}
+
+/*-----------------------------> 캠핑장 이름 및 제목 css :textbox위치지정*/
+.textBor{
+    border: 3px dashed;
+    border-color: #446591;
+    border-radius: 10px;
+}
+
+
+.h5{
+    margin-top: 3%;
+    margin-left: 25%;
+    font-weight: 500;
+}
+
+
+.center {
+    margin-top: 145px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+}
+
+.inputform{
+    margin-top: 300px;
+    left: 50%;
+    transform: translate(3%, 120%);
+   
+}
+
+.input-group mb-3{
+    margin-left: 310px;
+    
+}
+
+/*-----------------------------------------------------------------------------------> 글 수정하기 */
+
+  div .wrapper{
+      width: 100%;
+      height: 100%;
+     
+  }
+  
+  div .review_context{
+      width: 80%;
+      float: left;
+    height: 770px;
+    background-color: #F9F9FA;
+    /* background-color: #ced4da; */
+    overflow: hidden;
+  }
+
+  div .review_alter{
+    width: 20%;
+    float: right;
+    height: 770px;
+    background-color: #ced4da;
+    /* background-color: #e4ebf1; */
+    overflow: hidden;
+   
+}
+/* -------------------------------------->공간 나누기 css */
+h4{
+    text-align: center;
+    margin: 40px auto;
+    
+}
+
+.review1 p, .review2 p, .review3 p{
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: 10px;
+    display: inline-block;
+    margin-top: 60px;
+}
+.review1 textarea, .review2 textarea, .review3 textarea{
+    width: 350px;
+    height: 100px;
+    overflow-y: scroll;
+    margin-left: 10px;
+}
+
+#btn1, #btn2, #btn3{
+    margin-left: 150px;
+}
+/* ------------------------------------------>리뷰 작성 및 리뷰 저장소 */
+
+.textBor{
+    border: 3px solid;
+    border-color: #446591;
+    border-radius: 10px;
+}
+
+#modReview{
+    width: 150px;
+    display: inline-block;
+    margin-top: 50px;
+    margin-left: 450px;
+    font-size: 15px;
+    line-height: 2;
+}
+
+
+
+.center {
+    margin-top: 190px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+}
+
+#inputform1{
+    margin-top: 320px;
+    transform: translate(-20%, -600%);
+    position: fixed;
+}
+/* ------------------------------------------------------->리뷰 수정 */
+#noLogin{
+    text-align: center;
+    height: 50%;
+    transform: translate(0%, 900%);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+    background-color: #ced4da;
+}
+/* --------------------------------------------------------> 로그인 해야한다고 하는 CSS */
+.nav-item{
+    cursor: pointer;
+}
+/*----------------------------------------> 로그아웃page*/
+
+
+.circle{
+    margin-top: 145px;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+   
+    width:200px;
+    height:200px;
+    border-radius:50%;
+    background:#00d3d3;
+    
+    font-size:16px;
+    text-align:center;  /*가로정렬*/
+    line-height:200px;  /*세로 정렬*/ 
+    
+    }
+
+    .circle:hover{
+        background-color: #e3f2fd;
+        transition: background-color .5s;
+    }
+.circle1{
+    margin-top: 145px;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+    
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    background:#758d8d;
+    
+    font-size:16px;
+    text-align:center;  /*가로정렬*/
+    line-height:200px;  /*세로 정렬*/ 
+    
+    }
+    .circle1:hover{
+        background-color: #f1e3fd;
+        transition: background-color .5s;
+    }
+   
+    .circle2{
+        margin-top: 305px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: fixed;
+        
+        width:150px;
+        height:150px;
+        border-radius:50%;
+        background:#dba479;
+        
+        font-size:16px;
+        text-align:center;  /*가로정렬*/
+        line-height:200px;  /*세로 정렬*/ 
+        
+        }   
+
+        .circle2:hover{
+            background-color: #ecf6cc;
+            transition: background-color .5s;
+        }
+        .circle3{
+            margin-top: 400px;
+            left: 61%;
+            transform: translate(-50%, -50%);
+            position: fixed;
+            
+            width:175px;
+            height:175px;
+            border-radius:50%;
+            background:#79a2db;
+            
+            font-size:16px;
+            text-align:center;  /*가로정렬*/
+            line-height:200px;  /*세로 정렬*/ 
+            
+            }  
+            
+            .circle3:hover{
+                background-color: #f6ccdb;
+                transition: background-color .5s;
+            }
+
+            .circle4{
+                margin-top: 490px;
+                left: 48%;
+                transform: translate(-50%, -50%);
+                position: fixed;
+                
+                width:175px;
+                height:175px;
+                border-radius:50%;
+                background:#79dbc6;
+                
+                font-size:16px;
+                text-align:center;  /*가로정렬*/
+                line-height:200px;  /*세로 정렬*/ 
+                
+                }     
+                
+                .circle4:hover{
+                    background-color: #748aa1;
+                    transition: background-color .5s;
+                }
+
+/*------------------------------------------->지역 선택 CSS*/
+#registReview_txt{
+    margin-left:250px;
+    margin-top: 50px;
+    font-weight: bold;
+     float: left;
+     display: inline-block;
+     font-size: 25px;
+}
+
+#moveRegistPage{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    color: #446591;
+    float: right;
+    
+}
+
+#linkReview{
+    text-decoration: none;
+    margin-right: 35px;
+}
+/* ---------------------------->등록된 리뷰 보기 상단 */
+
+.ReviewContent{
+    width: 1500px;
+    height: 691px;
+    background-color: #F9F9FA;
+   
+    margin:0 auto;
+}
+
+.subContent{
+    background-color: #ced4da;
+    margin: auto;
+    width: 1200px;
+    height: 500px;
+    border-radius: 3rem;
+    transform: translate(0%, 5%);
+}
+#randImg{
+    border-radius: 2rem;
+    margin: 15px;
+    size: 15px;
+    float: left;
+}
+
+#randReview{
+    width: 400px;
+    height: 460px;
+    float: right;
+    margin-right: 30px;
+    margin-top: 15px;
+    margin-bottom:15px
+    
+}
+
+.reviewrandCard{
+    text-align: center;
+    position: relative;
+}
+#rand1,#rand2,#rand3{
+    float:left;
+    margin-top: -130px;
+    left:470px;
+    border-radius: 2rem;
+
+    
+}
+#rand1,#rand2,#rand3{
+    margin-right: 50px;
+}
+/*---------------------------------> 랜덤으로 리뷰 보이게 하기*/
+
+#choice_location{
+    text-decoration: none;
+}
+/* ---------------------------------> 해당 지역에서 예약 */
