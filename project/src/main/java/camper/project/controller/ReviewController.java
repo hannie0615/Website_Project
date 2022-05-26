@@ -23,7 +23,7 @@ public class ReviewController {
 
     @GetMapping("reviews/new")
     public String createReview() {
-        return "reviews/ReviewPage";
+        return "review/ReviewPage";
     }
 
     // URL 안바뀐 상태에서 저장 하고 인덱스로 가는 거
@@ -47,7 +47,7 @@ public class ReviewController {
 
     @GetMapping("reviews/find")
     public String findReview() {
-        return "reviews/modificationPage";
+        return "review/modificationPage";
     }
 
     @PostMapping("reviews/find")
@@ -59,13 +59,13 @@ public class ReviewController {
         model.addAttribute("review", r);
 
         // 다음 페이지로 이동!
-        return "reviews/modificationPage";
+        return "review/reviewBoard";
     }
 
     @GetMapping("reviews") // localhost:8080/members
     public String ReviewList(Model model) {
         List<Review> reviews = service.findAll();
         model.addAttribute("reviews", reviews);
-        return "reviews/reviewBoard";
+        return "review/reviewBoard";
     }
 }
