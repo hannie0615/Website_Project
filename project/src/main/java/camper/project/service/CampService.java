@@ -1,6 +1,6 @@
 package camper.project.service;
 
-import camper.project.domain.Camp;
+import  camper.project.domain.Camp;
 import camper.project.domain.CampImage;
 import camper.project.domain.Room;
 import camper.project.repository.CampRepositoryInterface;
