@@ -2,6 +2,7 @@ package camper.project.repository;
 
 import javax.sql.DataSource;
 
+import camper.project.domain.Camp;
 import camper.project.domain.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -34,6 +35,7 @@ public class JdbcTemplateMemberRepository implements MemberRepositoryInterface {
         parameters.put("id", m.getId());
         parameters.put("pw", m.getPw());
         parameters.put("birthdate", m.getBirthDate());
+        parameters.put("type", m.getType());
 
         jdbcInsert.execute(parameters);
 
@@ -48,6 +50,10 @@ public class JdbcTemplateMemberRepository implements MemberRepositoryInterface {
         return null;
     }
 
+    @Override
+    public List<Camp> findCampsBySellerId(String id) {
+        return jdbcTemplate.query("SELECT * FROM camps WHERE sellerid = ?", campRowMapper(), id);
+    }
 
     private RowMapper<Member> memberRowMapper() {
         return new RowMapper<Member>() {
@@ -59,8 +65,28 @@ public class JdbcTemplateMemberRepository implements MemberRepositoryInterface {
                 m.setPw(rs.getString("pw"));
                 m.setName(rs.getString("name"));
                 m.setBirthDate(rs.getString("birthdate"));
+                m.setType(rs.getString("type"));
 
                 return m;
+            }
+        };
+    }
+
+    private RowMapper<Camp> campRowMapper(){
+        return new RowMapper<Camp>() {
+            @Override
+            public Camp mapRow(ResultSet rs, int rowNum) throws SQLException {
+                Camp c = new Camp();
+
+                c.setLocation(rs.getString("location"));
+                c.setName(rs.getString("name"));
+                c.setAddress(rs.getString("address"));
+                c.setAddress(rs.getString("address"));
+                c.setDate(rs.getString("postdate"));
+                c.setSellerId(rs.getString("sellerId"));
+                c.setCampId(rs.getInt("campId"));
+
+                return c;
             }
         };
     }

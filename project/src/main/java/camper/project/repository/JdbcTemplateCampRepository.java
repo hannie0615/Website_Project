@@ -2,7 +2,7 @@ package camper.project.repository;
 
 import camper.project.domain.Camp;
 import camper.project.domain.CampImage;
-import camper.project.domain.Member;
+import camper.project.domain.Room;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -71,6 +71,7 @@ public class JdbcTemplateCampRepository implements CampRepositoryInterface {
         jdbcInsert.withTableName("image");
 
         Map<String, Object> parameters = new HashMap<>();
+        parameters.put("name", campImage.getName());
         parameters.put("uuid", campImage.getUuid());
         parameters.put("imgname", campImage.getImgName());
         parameters.put("contenttype", campImage.getContentType());
@@ -78,6 +79,20 @@ public class JdbcTemplateCampRepository implements CampRepositoryInterface {
 
         jdbcInsert.execute(parameters);
 
+    }
+
+    @Override
+    public void saveRoom(Room r) {
+        SimpleJdbcInsert jdbcInsert = new SimpleJdbcInsert(jdbcTemplate);
+        jdbcInsert.withTableName("room").usingGeneratedKeyColumns("roomid");
+
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("name", r.getName());
+        parameters.put("price", r.getPrice());
+        parameters.put("reservecheck", r.isReserveCheck());
+        parameters.put("campid", r.getCampId());
+
+        jdbcInsert.execute(parameters);
     }
 
     @Override
@@ -97,7 +112,7 @@ public class JdbcTemplateCampRepository implements CampRepositoryInterface {
                 c.setAddress(rs.getString("address"));
                 c.setDate(rs.getString("postdate"));
                 c.setSellerId(rs.getString("sellerId"));
-                c.setCampId(rs.getString("campId"));
+                c.setCampId(rs.getInt("campId"));
 
                 return c;
             }
