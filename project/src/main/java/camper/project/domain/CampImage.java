@@ -4,7 +4,6 @@ public class CampImage {
 
     private String name;
     private String uuid;
-    private String imgName;
     private String contentType;
     private int campId;
 
@@ -24,10 +23,12 @@ public class CampImage {
         this.campId = campId;
     }
 
-    public CampImage(String name, String uuid, String imgName, String contentType, int campId) {
+
+    public CampImage() {}
+    public CampImage(String name, String uuid, String contentType, int campId) {
         this.name = name;
         this.uuid = uuid;
-        this.imgName = imgName;
+
         this.contentType = contentType;
         this.campId = campId;
     }
@@ -40,13 +41,7 @@ public class CampImage {
         this.uuid = uuid;
     }
 
-    public String getImgName() {
-        return imgName;
-    }
 
-    public void setImgName(String imgName) {
-        this.imgName = imgName;
-    }
 
     public String getContentType() {
         return contentType;

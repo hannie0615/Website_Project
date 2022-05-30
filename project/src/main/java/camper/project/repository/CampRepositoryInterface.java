@@ -13,8 +13,16 @@ public interface CampRepositoryInterface {
     List<Camp> findCampBySellerId(String sellerId);
     void saveImage(CampImage campImage);
 
+    Camp findCampByCampId(int campId);
+
     List<CampImage> findImg(String name);
 
     void saveRoom(Room r);
+
+    List<Room> findRoomByCampId(int id);
+
+    void deleteCamp(int campId);
+
+
 
 }

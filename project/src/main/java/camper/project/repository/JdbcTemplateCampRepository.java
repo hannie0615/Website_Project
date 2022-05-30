@@ -73,13 +73,18 @@ public class JdbcTemplateCampRepository implements CampRepositoryInterface {
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("name", campImage.getName());
         parameters.put("uuid", campImage.getUuid());
-        parameters.put("imgname", campImage.getImgName());
         parameters.put("contenttype", campImage.getContentType());
         parameters.put("campid", campImage.getCampId());
 
         jdbcInsert.execute(parameters);
 
     }
+
+    @Override
+    public List<CampImage> findImg(String name) {
+        return null;
+    }
+
 
     @Override
     public void saveRoom(Room r) {
@@ -96,7 +101,21 @@ public class JdbcTemplateCampRepository implements CampRepositoryInterface {
     }
 
     @Override
-    public List<CampImage> findImg(String name) {
+    public List<Room> findRoomByCampId(int campId) {
+        return jdbcTemplate.query("SELECT * FROM room WHERE campid = ?", roomRowMapper(), campId);
+    }
+
+    @Override
+    public void deleteCamp(int campId) {
+        jdbcTemplate.update("DELETE camps WHERE campId = ?", campId);
+    }
+
+    @Override
+    public Camp findCampByCampId(int campId) {
+        List<Camp> result = jdbcTemplate.query("SELECT * FROM camps WHERE campid = ?", campRowMapper(), campId);
+
+        if (result.stream().findFirst().isPresent())
+            return result.stream().findFirst().get();
         return null;
     }
 
@@ -115,6 +134,41 @@ public class JdbcTemplateCampRepository implements CampRepositoryInterface {
                 c.setCampId(rs.getInt("campId"));
 
                 return c;
+            }
+        };
+    }
+
+    private RowMapper<CampImage> campImageRowMapper() {
+        return new RowMapper<CampImage>() {
+            @Override
+            public CampImage mapRow(ResultSet rs, int rowNum) throws SQLException {
+                CampImage ci = new CampImage();
+
+
+                ci.setName(rs.getString("name"));
+                ci.setCampId(rs.getInt("campid"));
+                ci.setUuid(rs.getString("uuid"));
+                ci.setContentType(rs.getString("contenttype"));
+
+                return ci;
+
+            }
+        };
+    }
+
+    private RowMapper<Room> roomRowMapper() {
+        return new RowMapper<Room>() {
+            @Override
+            public Room mapRow(ResultSet rs, int rowNum) throws SQLException {
+                Room r = new Room();
+
+                r.setPrice(rs.getString("price"));
+                r.setRoomId(rs.getInt("roomid"));
+                r.setCampId(rs.getInt("campid"));
+                r.setName(rs.getString("name"));
+                r.setReserveCheck(rs.getBoolean("reservecheck"));
+
+                return r;
             }
         };
     }

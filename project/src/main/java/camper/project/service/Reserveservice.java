@@ -1,7 +1,9 @@
 package camper.project.service;
 
 
+import camper.project.domain.Camp;
 import camper.project.domain.Reserve;
+import camper.project.domain.Room;
 import camper.project.repository.ReserveRepositoryInterface;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,10 @@ public class Reserveservice {
         repsository.saveReserve(r);
 
     }
+
+    public Room findRoomByRoomId(int roomId) { return repsository.findByRoomId(roomId); }
+
+    public Camp findCampByCampId(int campId) { return repsository.findByCampId(campId); }
 
     public List<Reserve> findByid(String clientid) {
         return repsository.findByid(clientid);

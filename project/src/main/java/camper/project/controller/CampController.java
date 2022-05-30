@@ -56,20 +56,27 @@ public class CampController {
             if (!file.isEmpty()) {
                 CampImage ci = new CampImage("main",
                         UUID.randomUUID().toString(),
-                        file.getOriginalFilename(),
                         file.getContentType(),
                         service.findByName(campForm.getName()).getCampId());
                 service.uploadImage(ci);
 
-                File newFile = new File(ci.getUuid() + "_" + ci.getImgName());
+                File newFile = new File(ci.getUuid());
                 file.transferTo(newFile);
             }
         }
         c.setCampId(service.findByName(campForm.getName()).getCampId());
         model.addAttribute("registeringCamp", c);
-        // 변경내용
+        // 변경내
 
         return "camp/registerRoom";
+
+    }
+
+    @PostMapping("camp/drop")
+    public String dropCamp(@RequestParam("campId") int campId) {
+        service.deleteCamp(campId);
+
+        return "redirect:/myPage";
 
     }
 
@@ -89,12 +96,11 @@ public class CampController {
             if (!file.isEmpty()) {
                 CampImage ci = new CampImage(r.getName(),
                         UUID.randomUUID().toString(),
-                        file.getOriginalFilename(),
                         file.getContentType(),
                         r.getCampId());
                 service.uploadImage(ci);
 
-                File newFile = new File(ci.getUuid() + "_" + ci.getImgName());
+                File newFile = new File(ci.getUuid());
                 file.transferTo(newFile);
             }
         }
@@ -122,6 +128,82 @@ public class CampController {
 
         return "camp/registeredList";
     }
+
+    @PostMapping("search")
+    public String search(@RequestParam("name") String name, Model model) {
+
+        Camp c = service.findByName(name);
+        model.addAttribute(c);
+        return "camp/campDetail";
+
+
+    }
+
+    @GetMapping("camp/seoul")
+    public String seoul(Camp camp, Model model) {
+        String loc = "서울/경기";
+        List<Camp> campList = service.findByLocation(loc);
+
+        model.addAttribute("campList", campList);
+        return "camp/campList";
+    }
+
+    @GetMapping("camp/gangwon")
+    public String Gangwon(Camp camp, Model model) {
+        String loc = "강원도";
+        List<Camp> campList = service.findByLocation(loc);
+        model.addAttribute("campList", campList);
+        return "camp/campList";
+    }
+
+    @GetMapping("camp/chungcheong")
+    public String Chungcheong(Camp camp, Model model) {
+        String loc = "충청도";
+        List<Camp> campList = service.findByLocation(loc);
+
+        model.addAttribute("campList", campList);
+        return "camp/campList";
+    }
+
+    @GetMapping("camp/kyeongsang")
+    public String kyeongsang(Camp camp, Model model) {
+        String loc = "경상도";
+        List<Camp> campList = service.findByLocation(loc);
+
+        model.addAttribute("campList", campList);
+        return "camp/campList";
+    }
+
+    @GetMapping("camp/jeonlado")
+    public String jeonlado(Camp camp, Model model) {
+        String loc = "전라도";
+        List<Camp> campList = service.findByLocation(loc);
+
+        model.addAttribute("campList", campList);
+        return "camp/campList";
+    }
+
+    @GetMapping("camp/campDetail")
+    public String campDetail(@RequestParam("campId") int campId, Model model) {
+
+
+        List<Room> roomList = new ArrayList<>();
+        for (Room room : service.findRoomByCampId(campId)) {
+            if (!room.isReserveCheck()) {
+                roomList.add(room);
+            }
+        }
+        Camp c = service.findCampByCampId(campId);
+
+        model.addAttribute("roomList", roomList);
+        model.addAttribute("camp", c);
+
+        return "camp/campDetail";
+    }
+
+
+
+
 
     // Seller mypage
 

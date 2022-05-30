@@ -20,11 +20,6 @@ public class ReviewController {
     public ReviewController(ReviewService service) {
         this.service = service;
     }
-    @GetMapping("reviews/board")
-    public String goBoard() {
-        return "review/reviewBoard";
-    }
-
 
     @GetMapping("reviews/new")
     public String createReview() {

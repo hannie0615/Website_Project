@@ -119,16 +119,30 @@ public class MemberController {
             model.addAttribute("registeredList", campList);
 
             return "members/sellerMyPage";
+        } else {
+
+            List<Reserve> reserveList = service.findReservationByClientId(m.getId());
+
+            model.addAttribute("reserveList", reserveList);
+
+            return "members/clientMyPage";
         }
-
-        List<Reserve> r= service.findByid(m.getId());
-        model.addAttribute("reserves", r);
-
-
-        return "members/clientMyPage";
-
 
     }
 
+    @PostMapping("drop")
+    public String drop(@RequestParam("id") String id, HttpServletRequest request) {
+
+        System.out.println(id);
+        service.drop(id);
+
+        HttpSession session = request.getSession(false);
+
+        if (session != null) {
+            session.invalidate();
+        }
+
+        return "redirect:/";
+    }
 
 }

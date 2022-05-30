@@ -30,6 +30,10 @@ public class CampService {
 
     }
 
+    public List<Room> findRoomByCampId(int campId) { return repository.findRoomByCampId(campId); }
+
+    public Camp findCampByCampId(int campId) { return repository.findCampByCampId(campId); }
+
     public void registerRoom(Room r) {
         repository.saveRoom(r);
     }
@@ -41,5 +45,7 @@ public class CampService {
     public void uploadImage(CampImage ci) {
         repository.saveImage(ci);
     }
+
+    public void deleteCamp(int campId) { repository.deleteCamp(campId); }
 }
 

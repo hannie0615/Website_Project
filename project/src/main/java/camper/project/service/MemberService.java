@@ -3,6 +3,7 @@ package camper.project.service;
 import camper.project.domain.Camp;
 import camper.project.domain.Member;
 import camper.project.domain.Reserve;
+import camper.project.domain.Room;
 import camper.project.repository.MemberRepositoryInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.Errors;
@@ -15,7 +16,6 @@ import java.util.Map;
 public class MemberService {
 
     MemberRepositoryInterface repository;
-
 
     @Autowired
     public MemberService(MemberRepositoryInterface repository) {
@@ -32,6 +32,10 @@ public class MemberService {
 
     public List<Camp> findCampsBySellerId(String id) { return repository.findCampsBySellerId(id); }
 
+    public void drop(String id) { repository.deleteMember(id); }
+
+    public List<Reserve> findReservationByClientId(String id) { return repository.findReservationByClientId(id); }
+
     public Map<String, String> validateHandling(Errors errors) {
         Map<String, String> validatorResult = new HashMap<>();
 
@@ -40,10 +44,6 @@ public class MemberService {
             validatorResult.put(validkeyName, error.getDefaultMessage());
         }
         return validatorResult;
-    }
-
-    public List<Reserve> findByid(String id) {
-        return repository.findByid(id);
     }
 
 

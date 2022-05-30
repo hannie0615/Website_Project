@@ -5,7 +5,7 @@ public class RoomForm {
     private String name;
     private String price;
     private int campId;
-    private String roomId;
+    private int roomId;
 
 
     public int getCampId() {
@@ -16,11 +16,11 @@ public class RoomForm {
         this.campId = campId;
     }
 
-    public String getRoomId() {
+    public int getRoomId() {
         return roomId;
     }
 
-    public void setRoomId(String roomId) {
+    public void setRoomId(int roomId) {
         this.roomId = roomId;
     }
 

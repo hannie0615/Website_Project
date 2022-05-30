@@ -52,15 +52,19 @@ public class JdbcTemplateMemberRepository implements MemberRepositoryInterface {
     }
 
     @Override
-    public List<Camp> findCampsBySellerId(String id) {
-        return jdbcTemplate.query("SELECT * FROM camps WHERE sellerid = ?", campRowMapper(), id);
+    public void deleteMember(String id) {
+        jdbcTemplate.update("DELETE member WHERE id = ?", id);
     }
 
     @Override
-    public List<Reserve> findByid(String id) {
-        return jdbcTemplate.query("SELECT * FROM reserve WHERE id=?", reserveRowMapper(), id);
+    public List<Reserve> findReservationByClientId(String id) {
+        return jdbcTemplate.query("SELEcT * FROM reservation WHERE clientid = ?", reserveRowMapper(), id);
     }
 
+    @Override
+    public List<Camp> findCampsBySellerId(String id) {
+        return jdbcTemplate.query("SELECT * FROM camps WHERE sellerid = ?", campRowMapper(), id);
+    }
 
     private RowMapper<Member> memberRowMapper() {
         return new RowMapper<Member>() {
@@ -98,17 +102,21 @@ public class JdbcTemplateMemberRepository implements MemberRepositoryInterface {
         };
     }
 
-    private RowMapper<Reserve> reserveRowMapper() {
+    private RowMapper<Reserve> reserveRowMapper(){
         return new RowMapper<Reserve>() {
             @Override
             public Reserve mapRow(ResultSet rs, int rowNum) throws SQLException {
                 Reserve r = new Reserve();
-                r.setClientname(rs.getString("clientname"));
-                r.setClientid(rs.getString("clientid"));
-                r.setReserveplace(rs.getString("reserveplace"));
-                r.setStaytime(rs.getString("staytime"));
-                r.setReservedate(rs.getString("reservedate"));
-                r.setReserveid(rs.getString("reserveid"));
+
+                r.setCampName(rs.getString("campname"));
+                r.setClientId(rs.getString("clientid"));
+                r.setRoomName(rs.getString("roomname"));
+                r.setRoomId(rs.getInt("roomid"));
+                r.setCheckIn(rs.getString("checkin"));
+                r.setCheckOut(rs.getString("checkout"));
+                r.setReserveDate(rs.getString("reservedate"));
+                r.setReserveId(rs.getInt("reserveid"));
+
                 return r;
             }
         };

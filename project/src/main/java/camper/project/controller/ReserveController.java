@@ -3,6 +3,7 @@ package camper.project.controller;
 import camper.project.domain.Camp;
 import camper.project.domain.Member;
 import camper.project.domain.Reserve;
+import camper.project.domain.Room;
 import camper.project.service.Reserveservice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -24,16 +26,9 @@ public class ReserveController {
     public ReserveController(Reserveservice reserveservice) {
         this.reserveservice = reserveservice;
     }
-/*
-    @GetMapping("Gangwon")
-    public String Gangwon(Camp camp) {
-        String loc = "강원";
-        Camp
 
-        camp.getLocation();
-        return "#";
-    }
-*/
+
+
     @GetMapping("/camp/map")
     public String choicemap() {
         System.out.println("maplog");
@@ -52,37 +47,35 @@ public class ReserveController {
         return "res/lookreserve";
     }
 
-    @PostMapping("/reserve/new")
-    public String create(HttpServletRequest request , Reserveform reserveform) {
-        Reserve r= new Reserve();
-        Member m = (Member)request.getSession().getAttribute("member");
 
-        r.setClientname(m.getName());
-        r.setClientid(m.getId());
-        r.setStaytime(reserveform.getStaytime());
-        r.setReserveplace(reserveform.getReserveplace());
+   @GetMapping("/onlyClient")
+   public String onlyClient() {
+        return "/onlyClient";
+   }
+
+
+    @PostMapping("camp/reserve")
+    public String reserve(@RequestParam("roomId") int roomId, @RequestParam("checkIn") String checkIn, @RequestParam("checkOut") String checkOut, HttpServletRequest request) {
+        System.out.println(checkOut);
+        System.out.println(checkIn);
+        System.out.println(roomId);
+
+        Reserve r = new Reserve();
+
+        Member m = (Member)request.getSession().getAttribute("member");
+        Room room = reserveservice.findRoomByRoomId(roomId);
+        Camp camp = reserveservice.findCampByCampId(room.getCampId());
+
+        r.setRoomId(roomId);
+        r.setRoomName(room.getName());
+        r.setClientId(m.getId());
+        r.setCheckIn(checkIn);
+        r.setCheckOut(checkOut);
+        r.setCampName(camp.getName());
 
         reserveservice.join(r);
 
         return "redirect:/";
-    }
-
-    @PostMapping("/reserve/find")
-    public  String find(HttpServletRequest request, Model model) {
-        System.out.println("find method in");
-        Member m = (Member)request.getSession().getAttribute("member");
-        List<Reserve> r= reserveservice.findByid(m.getId());
-        model.addAttribute("reserves", r);
-        return "res/findreserve";
-    }
-
-    @GetMapping ("/deletereserve")
-    public String delete(@ModelAttribute() Reserve reserve, Model model) {
-        System.out.println(reserve.getReserveid());
-        List<Reserve> r = reserveservice.deletereserve(reserve.getReserveid());
-        model.addAttribute("reserves", r);
-        return "res/findreserve";
-
     }
 
 }

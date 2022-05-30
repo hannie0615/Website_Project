@@ -1,9 +1,11 @@
 package camper.project;
 
 import camper.project.interceptor.LoginInterceptor;
+import camper.project.interceptor.ReserveInterceptor;
 import camper.project.repository.*;
 import camper.project.service.CampService;
 import camper.project.service.MemberService;
+import camper.project.service.Reserveservice;
 import camper.project.service.ReviewService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -43,7 +45,12 @@ public class SpringConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new LoginInterceptor())
                 .addPathPatterns("/myPage");
+
+        registry.addInterceptor(new ReserveInterceptor())
+                .addPathPatterns("/camp/reserve");
     }
+
+
     @Bean
     public ReviewService reviewService() {
         return new ReviewService(reviewRepositoryInterface());

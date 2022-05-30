@@ -1,60 +1,78 @@
 package camper.project.domain;
 
+import java.util.Date;
+
 public class Reserve {
-    private String clientname;
-    private String clientid;
-    private String reserveplace;
-    private String reservedate;
-    private String staytime;
-    private String reserveid;
+    private String reserveDate;
+    private String campName;
+    private String roomName;
+    private String checkIn;
+    private String checkOut;
+    private String clientId;
+    private int roomId;
+    private int reserveId;
 
-    public String getReserveid() {
-        return reserveid;
+    public int getReserveId() {
+        return reserveId;
     }
 
-    public void setReserveid(String reserveid) {
-        this.reserveid = reserveid;
+    public void setReserveId(int reserveId) {
+        this.reserveId = reserveId;
     }
 
-    public String getStaytime() {
-        return staytime;
+    public String getRoomName() {
+        return roomName;
     }
 
-    public void setStaytime(String staytime) {
-        this.staytime = staytime;
+    public void setRoomName(String roomName) {
+        this.roomName = roomName;
     }
 
-    public String getClientname() {
-        return clientname;
+    public String getReserveDate() {
+        return reserveDate;
     }
 
-    public void setClientname(String clientname) {
-        this.clientname = clientname;
+    public void setReserveDate(String reserveDate) {
+        this.reserveDate = reserveDate;
     }
 
-    public String getClientid() {
-        return clientid;
+    public String getCampName() {
+        return campName;
     }
 
-    public void setClientid(String clientid) {
-        this.clientid = clientid;
+    public void setCampName(String campName) {
+        this.campName = campName;
     }
 
-    public String getReserveplace() {
-        return reserveplace;
+    public String getCheckIn() {
+        return checkIn;
     }
 
-    public void setReserveplace(String reserveplace) {
-        this.reserveplace = reserveplace;
+    public void setCheckIn(String checkIn) {
+        this.checkIn = checkIn;
     }
 
-    public String getReservedate() {
-        return reservedate;
+    public String getCheckOut() {
+        return checkOut;
     }
 
-    public void setReservedate(String reservedate) {
-        this.reservedate = reservedate;
+    public void setCheckOut(String checkOut) {
+        this.checkOut = checkOut;
     }
 
+    public String getClientId() {
+        return clientId;
+    }
 
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
+    }
+
+    public int getRoomId() {
+        return roomId;
+    }
+
+    public void setRoomId(int roomId) {
+        this.roomId = roomId;
+    }
 }

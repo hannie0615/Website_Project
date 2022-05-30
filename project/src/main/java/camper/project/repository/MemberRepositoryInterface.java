@@ -14,6 +14,10 @@ public interface MemberRepositoryInterface {
 
     List<Camp> findCampsBySellerId(String id);
 
-    List<Reserve> findByid(String clientid);
+    List<Reserve> findReservationByClientId(String id);
+
+    void deleteMember(String id);
+
+
 
 }
