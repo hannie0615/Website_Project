@@ -9,12 +9,15 @@
 <table>
     <thead>
     <tr>
+        <th> 이미지 </th>
         <th> 캠핑장명 </th>
         <th> 등록 날짜 </th>
     </tr>
     </thead>
     <tbody>
+
     <tr th:each="registered : ${registeredList}">
+        <td></td>
         <td th:text="${registered.name}"></td>
         <td th:text="${registered.date}"></td>
     </tr>

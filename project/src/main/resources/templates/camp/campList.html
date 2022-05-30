@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+
+<table>
+    <tbody>
+        <tr th:each="camp : ${campList}">
+            <td>
+                <a th:href="@{/camp/campDetail(campId=${camp.campId})}">
+                    <span th:text="${camp.name}"></span>
+                </a>
+            </td>
+            <td>
+                <span th:text="${camp.address}"></span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+</body>
+</html>

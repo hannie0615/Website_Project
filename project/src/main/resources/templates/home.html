@@ -165,17 +165,17 @@
 
 
 <div class="btn-group" role="group">
-    <button type="submit" onclick="location.href='reviews/board';" class="btn btn-outline-info" id="review_main">리뷰 게시판</button>
+    <button type="submit" onclick="location.href='reviews/new';" class="btn btn-outline-info" id="review_main">리뷰 게시판</button>
     <div class="btn-group" role="group">
-        <button id="btnGroupDrop1" type="submit" class="btn btn-outline-info"
+        <button id="btnGroupDrop1" type="submit"
                 class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
             지역 선택
         </button>
         <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-            <li><a class="dropdown-item" href='camp/map'>서울/경기</a></li>
-            <li><a class="dropdown-item" href="#">강원도</a></li>
-            <li><a class="dropdown-item" href="#">충청도</a></li>
-            <li><a class="dropdown-item" href="#">전라도</a></li>
+            <li><a class="dropdown-item" href='camp/seoul'>서울/경기</a></li>
+            <li><a class="dropdown-item" href="camp/gangwon">강원도</a></li>
+            <li><a class="dropdown-item" href="camp/chungcheong">충청도</a></li>
+            <li><a class="dropdown-item" href="camp/jeonlado">전라도</a></li>
 
         </ul>
     </div>
@@ -192,8 +192,8 @@
 <div id="search_main">
     <nav class="navbar bg-light">
         <div class="container-fluid">
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <form class="d-flex" role="search" action="/search">
+                <input class="form-control me-2" type="search" name="name" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
         </div>
